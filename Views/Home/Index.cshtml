@@ -1,0 +1,30 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using _200864D_AS_SITCONNECT.Areas.Identity.Data
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <div class="container">
+
+        <div class="text-center">
+            <h1 class="display-4">Welcome @UserManager.GetUserName(User)</h1>
+        </div>
+        <h3>
+            <a id="changePasswordLink" class="nav-link text-primary" asp-area="Identity" asp-page="/Account/ChangePassword" title="chgePswd">Change Password</a>
+        </h3>
+    </div>
+}
+else
+{
+    <div class="text-center">
+        <h1 class="display-4">Welcome to SIT CONNECT</h1>
+
+    </div>
+}
+
