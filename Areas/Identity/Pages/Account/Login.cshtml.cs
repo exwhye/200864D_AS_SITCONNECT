@@ -17,7 +17,6 @@ using _200864D_AS_SITCONNECT.Models;
 namespace _200864D_AS_SITCONNECT.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
-    [AuditLogActionFilter(ActionType = "UserLogIn")]
     public class LoginModel : PageModel
     {
         private readonly UserManager<ApplicationUser> _userManager;
