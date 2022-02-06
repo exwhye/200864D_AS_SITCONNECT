@@ -1067,35 +1067,35 @@
       });
     };
 
-    Carousel._dataApiClickHandler = function _dataApiClickHandler(event) {
-      var selector = Util.getSelectorFromElement(this);
+    //Carousel._dataApiClickHandler = function _dataApiClickHandler(event) {
+    //  var selector = Util.getSelectorFromElement(this);
 
-      if (!selector) {
-        return;
-      }
+    //  if (!selector) {
+    //    return;
+    //  }
 
-      var target = $(selector)[0];
+    //  var target = $(selector)[0];
 
-      if (!target || !$(target).hasClass(ClassName$2.CAROUSEL)) {
-        return;
-      }
+    //  if (!target || !$(target).hasClass(ClassName$2.CAROUSEL)) {
+    //    return;
+    //  }
 
-      var config = _objectSpread({}, $(target).data(), $(this).data());
+    //  var config = _objectSpread({}, $(target).data(), $(this).data());
 
-      var slideIndex = this.getAttribute('data-slide-to');
+    //  var slideIndex = this.getAttribute('data-slide-to');
 
-      if (slideIndex) {
-        config.interval = false;
-      }
+    //  if (slideIndex) {
+    //    config.interval = false;
+    //  }
 
-      Carousel._jQueryInterface.call($(target), config);
+    //  Carousel._jQueryInterface.call($(target), config);
 
-      if (slideIndex) {
-        $(target).data(DATA_KEY$2).to(slideIndex);
-      }
+    //  if (slideIndex) {
+    //    $(target).data(DATA_KEY$2).to(slideIndex);
+    //  }
 
-      event.preventDefault();
-    };
+    //  event.preventDefault();
+    //};
 
     _createClass(Carousel, null, [{
       key: "VERSION",
