@@ -49,10 +49,12 @@ namespace _200864D_AS_SITCONNECT.Areas.Identity.Pages.Account
         {
             [Required]
             [DataType(DataType.Text)]
+            [MaxLength(100,ErrorMessage ="Your First Name is too long")]
             [Display(Name = "First Name")]
             public string FirstName { get; set; }
             [Required]
             [DataType(DataType.Text)]
+            [MaxLength(100, ErrorMessage = "Your Last Name is too long")]
             [Display(Name = "Last Name")]
             public string LastName { get; set; }
 

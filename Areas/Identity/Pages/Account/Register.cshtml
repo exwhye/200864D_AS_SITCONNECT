@@ -6,6 +6,50 @@
 }
 
 <script>
+    function cardnumberval() {
+        var inputtxt = document.getElementById('cardnum').value;
+        var re = /^(?:3[47][0-9]{13})$/;
+        if (re.test(inputtxt)) {
+            document.getElementById("cardVal").innerHTML = "valid credit card (client validation)";
+            document.getElementById("cardVal").style.color = "green";
+        }
+        else {
+            console.log("Not a valid Amercican Express credit card number!");
+            var re2 = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+            if (re2.test(inputtxt)) {
+                document.getElementById("cardVal").innerHTML = "valid credit card(client validation)";
+                document.getElementById("cardVal").style.color = "green";
+            }
+            else {
+                console.log("Not a valid visa credit card number!");
+                var re3 = /^(?:5[1-5][0-9]{14})$/
+                if (re3.test(inputtxt)) {
+                    document.getElementById("cardVal").innerHTML = "valid credit card (client validation)";
+                    document.getElementById("cardVal").style.color = "green";
+                }
+                else {
+                    console.log("Not a valid mastercard credit card number!");
+                    document.getElementById("cardVal").innerHTML = "invalid credit card (client validation)";
+                    document.getElementById("cardVal").style.color = "red";
+                }
+            }
+        }
+    }
+   
+    function validateEmail()
+    {
+        var str = document.getElementById('email').value;
+        var re = /\S+@@\S+\.\S+/;
+        if (re.test(str) == false) {
+            document.getElementById("emailVal").innerHTML = "Please enter a valid email address (client validation)";
+            document.getElementById("emailVal").style.color = "red";
+        }
+        else {
+            document.getElementById("emailVal").innerHTML = "Nice email address (client validation)";
+            document.getElementById("emailVal").style.color = "green";
+        }
+    }
+
     function validatePswd() {
         var str = document.getElementById('password').value;
         const re = /^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{12}$/
@@ -19,6 +63,7 @@
             document.getElementById("passwordVal").style.color = "green";
         }
     }
+
     function validateConfirmPswd() {
         var str = document.getElementById('confirmPswd').value;
         console.log(str);
@@ -59,12 +104,12 @@
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="validatedCustomFile" onchange="return fileValidation()" required>
                             <label class="custom-file-label" for="validatedCustomFile">Choose photo</label>
-                            <span asp-validation-for="Input.ConfirmPassword" id="passwordConfirmVal" style="color:red"></span>
+                            
                         </div>
 
                         <div class="form-group">
                             <label asp-for="Input.FirstName"></label>
-                            <input asp-for="Input.FirstName" class="form-control" />
+                            <input asp-for="Input.FirstName" class="form-control"  />
                             <span asp-validation-for="Input.FirstName" class="text-danger"></span>
                         </div>
                         <div class="form-group">
@@ -74,13 +119,13 @@
                         </div>
                         <div class="form-group">
                             <label asp-for="Input.CreditCard"></label>
-                            <input asp-for="Input.CreditCard" class="form-control" />
-                            <span asp-validation-for="Input.CreditCard" class="text-danger"></span>
+                            <input asp-for="Input.CreditCard" class="form-control" onkeyup="javascript: cardnumberval()" id="cardnum" />
+                            <span asp-validation-for="Input.CreditCard"  id="cardVal" style="color:red"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="Input.Email"></label>
-                            <input asp-for="Input.Email" class="form-control" />
-                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                            <input asp-for="Input.Email" class="form-control" onkeyup="javascript:validateEmail()" id="email"/>
+                            <span asp-validation-for="Input.Email"  id="emailVal" style="color:red"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="Input.Password"></label>

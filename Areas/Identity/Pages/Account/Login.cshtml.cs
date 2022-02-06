@@ -49,6 +49,7 @@ namespace _200864D_AS_SITCONNECT.Areas.Identity.Pages.Account
             public string Email { get; set; }
 
             [Required]
+            [MaxLength(100, ErrorMessage = "Password is too long")]
             [DataType(DataType.Password)]
             public string Password { get; set; }
 
