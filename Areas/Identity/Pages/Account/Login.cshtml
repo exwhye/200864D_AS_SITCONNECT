@@ -22,7 +22,7 @@
 
     function validatePswd() {
         var str = document.getElementById('password').value;
-        const re = /^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{12}$/
+        const re = /^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{12,30}$/
         console.log(re.test(str))
         if (re.test(str) == false) {
             document.getElementById("passwordVal").innerHTML = "Password must Use combination of 12 characters, lower-case, upper-case, Numbers and special characters (client validation)";
@@ -78,9 +78,6 @@
                         <div class="form-group">
                             <p>
                                 <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
-                            </p>
-                            <p>
-                                <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
                             </p>
                         </div>
                     </form>

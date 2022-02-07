@@ -19,7 +19,7 @@ namespace _200864D_AS_SITCONNECT.Areas.Identity
                 services.Configure<IdentityOptions>(options =>
                 {
                     // Default Lockout settings.
-                    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(2);
                     options.Lockout.MaxFailedAccessAttempts = 3;
                     options.Lockout.AllowedForNewUsers = true;
 
